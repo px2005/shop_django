@@ -57,15 +57,31 @@
                                         class="icon icon-heart-o"></span></a>
                                 </li>
                                 <li>
+                                    {% with total_items=cart|length %}
+                                        {% if cart|length > 0 %}
                                     <a href="{% url 'cart_detail' %}" class="site-cart">
                                         <span class="icon icon-shopping_cart"></span>
-                                        <span class="count">2</span>
+                                        <span class="count">{{ total_items }}</span>
+<!--                                        <div class="cart">-->
+<!--                                                <a href="{% url "cart_detail" %}">-->
+<!--                                                {{ total_items }} item{{ total_items|pluralize }},-->
+<!--                                                ${{ cart.get_total_price }}-->
+<!--                                                </a>-->
+<!--                                        </div>-->
                                     </a>
+                                        {% else %}
+                                            <span class="icon icon-shopping_cart"></span>
+                                        {% endif %}
+                                    {% endwith %}
                                 </li>
-                                <li class="d-inline-block d-md-none ml-md-0"><a
-                                        href="#"
-                                        class="site-menu-toggle js-menu-toggle"><span
-                                        class="icon-menu"></span></a></li>
+                                <li>
+                                  <h4>${{ cart.get_total_price }}</h4>
+                                </li>
+
+<!--                                <li class="d-inline-block d-md-none ml-md-0"><a-->
+<!--                                        href="#"-->
+<!--                                        class="site-menu-toggle js-menu-toggle"><span-->
+<!--                                        class="icon-menu"></span></a></li>-->
                             </ul>
                         </div>
                     </div>
