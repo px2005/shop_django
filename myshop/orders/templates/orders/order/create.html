@@ -18,26 +18,47 @@
           <div class="col-md-6 mb-5 mb-md-0">
             <h2 class="h3 mb-3 text-black">Billing Details</h2>
             <div class="p-3 p-lg-5 border">
-
+            <form action="." method="post" class="order-form">
+                {% csrf_token %}
               <div class="form-group row">
-                <div class="col-md-12">
-                  <form action="." method="post" class="order-form">
-                    {% for f in form %}
-                    <p><label for="{{ f.id_for_label }}" class="text-black">{{ f.label }}<span class="text-danger">*</span></label>
-                    <br>{{ f }}
-                    </p>
-                    {% endfor %}
-
-                     {% csrf_token %}
-
+                <div class="col-md-6">
+                    <label for="{{ form.first_name.id_for_label }}" class="text-black">{{ form.first_name.label }}<span class="text-danger">*</span></label>
+                    {{ form.first_name }}
+                </div>
+                <div class="col-md-6">
+                  <label for="{{ form.last_name.id_for_label }}" class="text-black">{{ form.last_name.label }}<span class="text-danger">*</span></label>
+                    {{ form.last_name }}
                 </div>
               </div>
 
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <label for="{{ form.email.id_for_label }}" class="text-black">{{ form.email.label }}<span class="text-danger">*</span></label>
+                    {{ form.email }}
+                </div>
+              </div>
 
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <label for="{{ form.address.id_for_label }}" class="text-black">{{ form.address.label }}<span class="text-danger">*</span></label>
+                    {{ form.address }}
+                </div>
+              </div>
 
-
+              <div class="form-group row">
+                <div class="col-md-6">
+                  <label for="{{ form.postal_code.id_for_label }}" class="text-black">{{ form.postal_code.label }}<span class="text-danger">*</span></label>
+                    {{ form.postal_code }}
+                </div>
+                <div class="col-md-6">
+                  <label for="{{ form.city.id_for_label }}" class="text-black">{{ form.city.label }}<span class="text-danger">*</span></label>
+                    {{ form.city }}
+                </div>
+              </div>
             </div>
           </div>
+
+
           <div class="col-md-6">
 
 <!--            <div class="row mb-5">-->
@@ -87,6 +108,7 @@
 
 
                   <div class="form-group">
+                      <br><p></p>
                     <button type="submit" class="btn btn-primary btn-lg py-3 btn-block">Place Order</button>
 
                   </div>
@@ -97,7 +119,6 @@
 
           </div>
         </div>
-        <!-- </form> -->
       </div>
     </div>
 {% endblock %}
