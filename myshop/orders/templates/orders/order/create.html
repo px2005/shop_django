@@ -22,24 +22,11 @@
               <div class="form-group row">
                 <div class="col-md-12">
                   <form action="." method="post" class="order-form">
-                    <p><label for="{{ form.first_name.id_for_label }}" class="text-black">{{ form.first_name.label }}<span class="text-danger">*</span></label>
-                    <br>{{ form.first_name }}
+                    {% for f in form %}
+                    <p><label for="{{ f.id_for_label }}" class="text-black">{{ f.label }}<span class="text-danger">*</span></label>
+                    <br>{{ f }}
                     </p>
-                    <p><label for="{{ form.last_name.id_for_label }}" class="text-black">{{ form.last_name.label }}<span class="text-danger">*</span></label>
-                    <br>{{ form.last_name }}
-                    </p>
-                    <p><label for="{{ form.email.id_for_label }}" class="text-black">{{ form.email.label }}<span class="text-danger">*</span></label>
-                    <br>{{ form.email }}
-                    </p>
-                    <p><label for="{{ form.address.id_for_label }}" class="text-black">{{ form.address.label }}<span class="text-danger">*</span></label>
-                    <br>{{ form.address }}
-                    </p>
-                    <p><label for="{{ form.postal_code.id_for_label }}" class="text-black">{{ form.postal_code.label }}<span class="text-danger">*</span></label>
-                    <br>{{ form.postal_code }}
-                    </p>
-                    <p><label for="{{ form.city.id_for_label }}" class="text-black">{{ form.city.label }}<span class="text-danger">*</span></label>
-                    <br>{{ form.city }}
-                    </p>
+                    {% endfor %}
 
                      {% csrf_token %}
 
