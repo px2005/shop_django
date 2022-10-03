@@ -20,7 +20,17 @@
             <p class="mb-4">{{product.description}}</p>
             <p><strong class="text-primary h4">${{product.price}}</strong></p>
             <form action="{% url 'cart_add' product.id %}" method="post">
-            <p class="text-black">{{ cart_product_form.quantity }}</p>
+
+            <div class="input-group mb-3" style="max-width: 140px;">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-primary js-btn-minus" type="button">−</button>
+              </div>
+              {{ cart_product_form.quantity }}
+                <div class="input-group-append">
+                <button class="btn btn-outline-primary js-btn-plus" type="button">+</button>
+              </div>
+            </div>
+
             {% csrf_token %}
              <p><button type="submit" class="buy-now btn btn-sm btn-primary">Add To Cart</button></p>
             </form>
