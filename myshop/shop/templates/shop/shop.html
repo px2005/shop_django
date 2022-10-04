@@ -12,14 +12,14 @@
         </div>
     </div>
 
-    <div class="site-section">
+    <div class="site-section" style="padding: 1em 0;">
         <div class="container">
 
             <div class="row mb-5">
                 <div class="col-md-9 order-2">
 
                     <div class="row">
-                        <div class="col-md-12 mb-5">
+                        <div class="col-md-12 mb-5" style="margin-bottom: 0rem!important;">
                             <div class="float-md-left mb-4"><h2
                                     class="text-black h5">Shop All</h2></div>
                             <div class="d-flex">
@@ -68,19 +68,36 @@
                         {% for product in page_obj %}
                         <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                             <div class="block-4 text-center border">
-                                <figure class="block-4-image">
+                                <figure class="block-4-image" style="margin:revert; margin-top: 0; margin-bottom: 0;">
                                     <a href="{{ product.get_absolute_url }}"><img
                                             src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'shop/images/cloth_1.jpg' %}{% endif %}"
                                             alt="Image placeholder"
                                             class="img-fluid"></a>
                                 </figure>
-                                <div class="block-4-text p-4">
+                                <div class="block-4-text p-4" style="padding: 0rem!important;">
                                     <h3><a href="{{ product.get_absolute_url }}">
                                         {{ product.name }}</a>
                                     </h3>
                                     <p class="mb-0">{{ product.description }}</p>
                                     <p class="text-primary font-weight-bold">
                                         {{ product.price }}</p>
+
+                                    <form action="{% url 'cart_add' product.id %}" method="post">
+
+                                        <div class="input-group mb-3" style="margin:0 auto; width:70%;">
+                                          <div class="input-group-prepend">
+                                            <button class="btn btn-outline-primary js-btn-minus" type="button">−</button>
+                                          </div>
+                                          {{ cart_product_form.quantity }}
+                                            <div class="input-group-append">
+                                            <button class="btn btn-outline-primary js-btn-plus" type="button">+</button>
+                                          </div>
+                                        </div>
+
+                                        {% csrf_token %}
+                                     <p><button type="submit" class="buy-now btn btn-sm btn-primary">Add To Cart</button></p>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
