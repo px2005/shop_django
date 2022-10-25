@@ -12,13 +12,26 @@ def index(request):
                   {'activeIndex': activeIndex}
                   )
 
+
+def contact(request):
+    activeContact = '/contact/'
+    return render(request, 'shop/contact.html', {'activeContact': activeContact}
+                  )
+
+
+def about(request):
+    activeAbout = '/about/'
+    return render(request, 'shop/about.html', {'activeAbout': activeAbout}
+                  )
+
+
 def product_list(request, category_slug=None):
     category = None
     activeShop = '/shop/'
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     contact_list = Product.objects.filter(available=True)
-    paginator = Paginator(contact_list, 3)
+    paginator = Paginator(contact_list, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     cart_product_form = CartAddProductForm()
