@@ -20,6 +20,8 @@ def order_create(request):
             return render(request, 'orders/order/created.html',
                           {'order': order}
                           )
+        else:
+            form.add_error(None, 'Не корректные данные')
     else:
         form = OrderCreateForm
     return render(request, 'orders/order/create.html',

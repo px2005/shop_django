@@ -62,7 +62,9 @@
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
+                  <a href="{% url 'cart_detail' %}"
                 <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
+                  </a>
               </div>
               <div class="col-md-6">
                   <a href="{% url 'shop' %}"
@@ -70,18 +72,18 @@
                   </a>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <label class="text-black h4" for="coupon">Coupon</label>
-                <p>Enter your coupon code if you have one.</p>
-              </div>
-              <div class="col-md-8 mb-3 mb-md-0">
-                <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-              </div>
-              <div class="col-md-4">
-                <button class="btn btn-primary btn-sm">Apply Coupon</button>
-              </div>
-            </div>
+{#            <div class="row">#}
+{#              <div class="col-md-12">#}
+{#                <label class="text-black h4" for="coupon">Coupon</label>#}
+{#                <p>Enter your coupon code if you have one.</p>#}
+{#              </div>#}
+{#              <div class="col-md-8 mb-3 mb-md-0">#}
+{#                <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">#}
+{#              </div>#}
+{#              <div class="col-md-4">#}
+{#                <button class="btn btn-primary btn-sm">Apply Coupon</button>#}
+{#              </div>#}
+{#            </div>#}
           </div>
           <div class="col-md-6 pl-5">
             <div class="row justify-content-end">
@@ -103,7 +105,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <a href="{% url 'order_create' %}" class="button">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block">Proceed To Checkout</button>
                     </a>
                   </div>
                 </div>

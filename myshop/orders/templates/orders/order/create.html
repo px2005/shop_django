@@ -21,6 +21,8 @@
             <form action="." method="post" class="order-form">
                 {% csrf_token %}
               <div class="form-group row">
+                <div class="col-md-12 errors" style="color: red">{{ form.non_field_errors }}
+                </div>
                 <div class="col-md-6">
                     <label for="{{ form.first_name.id_for_label }}" class="text-black">{{ form.first_name.label }}<span class="text-danger">*</span></label>
                     {{ form.first_name }}

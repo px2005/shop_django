@@ -1,8 +1,10 @@
 from cart.forms import CartAddProductForm
 from django.core.paginator import Paginator
+from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404
 
 from .models import Category, Product
+from .forms import AddPostEmail
 
 
 def index(request):
@@ -14,9 +16,31 @@ def index(request):
 
 
 def contact(request):
+    form = AddPostEmail()
     activeContact = '/contact/'
-    return render(request, 'shop/contact.html', {'activeContact': activeContact}
-                  )
+
+    if request.method == 'POST':
+        form = AddPostEmail(request.POST)
+        if form.is_valid():
+            message = f'{form.cleaned_data["first_name"]} {form.cleaned_data["last_name"]}\n{form.cleaned_data["message"]}'
+            send_mail(
+                form.cleaned_data['subject'],
+                message,
+                form.cleaned_data['email'],
+                ['admin@example.com'],
+                fail_silently=False,
+            )
+            form = AddPostEmail()
+        else:
+            form.add_error(None, 'Не корректные данные')
+    else:
+        form = AddPostEmail()
+
+    return render(
+        request, 'shop/contact.html',
+        {'form': form,
+         'activeContact': activeContact}
+    )
 
 
 def about(request):
