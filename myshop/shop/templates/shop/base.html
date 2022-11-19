@@ -88,29 +88,33 @@
              role="navigation">
             <div class="container">
                 <ul class="site-menu js-clone-nav d-none d-md-block">
-                    <li class="has-children {% if request.path == activeIndex %}active{% endif %}">
+                    <li class="{% if request.path == activeIndex %}active{% endif %}">
                         <a href="{% url 'index' %}"><h6>Home</h6></a>
-                        <ul class="dropdown">
-                            <li><a href="#">Menu One</a></li>
-                            <li><a href="#">Menu Two</a></li>
-                            <li><a href="#">Menu Three</a></li>
-                            <li class="has-children">
-                                <a href="#">Sub Menu</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">Menu One</a></li>
-                                    <li><a href="#">Menu Two</a></li>
-                                    <li><a href="#">Menu Three</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+<!--                    <li class="has-children {% if request.path == activeIndex %}active{% endif %}">-->
+<!--                        <a href="{% url 'index' %}"><h6>Home</h6></a>-->
+<!--                        <ul class="dropdown">-->
+<!--                            <li><a href="#">Menu One</a></li>-->
+<!--                            <li><a href="#">Menu Two</a></li>-->
+<!--                            <li><a href="#">Menu Three</a></li>-->
+<!--                            <li class="has-children">-->
+<!--                                <a href="#">Sub Menu</a>-->
+<!--                                <ul class="dropdown">-->
+<!--                                    <li><a href="#">Menu One</a></li>-->
+<!--                                    <li><a href="#">Menu Two</a></li>-->
+<!--                                    <li><a href="#">Menu Three</a></li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
+<!--                        </ul>-->
                     </li>
-                    <li class="{% if request.path == activeAbout %}active{% endif %} has-children">
+                    <li class="{% if request.path == activeAbout %}active{% endif %}">
                         <a href="{% url 'about' %}"><h6>About</h6></a>
-                        <ul class="dropdown">
-                            <li><a href="#">Menu One</a></li>
-                            <li><a href="#">Menu Two</a></li>
-                            <li><a href="#">Menu Three</a></li>
-                        </ul>
+<!--                    <li class="{% if request.path == activeAbout %}active{% endif %} has-children">-->
+<!--                        <a href="{% url 'about' %}"><h6>About</h6></a>-->
+<!--                        <ul class="dropdown">-->
+<!--                            <li><a href="#">Menu One</a></li>-->
+<!--                            <li><a href="#">Menu Two</a></li>-->
+<!--                            <li><a href="#">Menu Three</a></li>-->
+<!--                        </ul>-->
                     </li>
                     <li class="{% if request.path == activeShop %}active{% endif %}"><a href="{% url 'shop' %}"><h6>Shop</h6></a></li>
                     <li class="{% if request.path == activeContact %}active{% endif %}"><a href={% url 'contact' %}><h6>Contact</h6></a></li>
@@ -170,15 +174,15 @@
               </ul>
             </div>
 
-            <div class="block-7">
-              <form action="#" method="post">
-                <label for="email_subscribe" class="footer-heading">Subscribe</label>
-                <div class="form-group">
-                  <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
-                  <input type="submit" class="btn btn-sm btn-primary" value="Send">
-                </div>
-              </form>
-            </div>
+<!--            <div class="block-7">-->
+<!--              <form action="#" method="post">-->
+<!--                <label for="email_subscribe" class="footer-heading">Subscribe</label>-->
+<!--                <div class="form-group">-->
+<!--                  <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">-->
+<!--                  <input type="submit" class="btn btn-sm btn-primary" value="Send">-->
+<!--                </div>-->
+<!--              </form>-->
+<!--            </div>-->
           </div>
         </div>
       </div>
